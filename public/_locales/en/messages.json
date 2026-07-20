@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Find in Everything",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Search selected text with Everything HTTP Server and show results in the popup or side panel. Requires a separate Everything install. Unofficial extension.",
+    "description": "Extension description for the Chrome Web Store"
+  }
+}

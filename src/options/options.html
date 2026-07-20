@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find in Everything - 設定</title>
+    <link rel="stylesheet" href="./options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <h1>Find in Everything 設定</h1>
+        <p class="subtitle">Developed by Byosoku Labs</p>
+      </header>
+
+      <section class="card">
+        <h2>接続</h2>
+        <p class="note" id="localhost-note"></p>
+        <label class="label" for="server-url">Everything HTTP Server の URL</label>
+        <input id="server-url" class="input" type="url" spellcheck="false" />
+        <label class="label" for="timeout-ms">HTTP タイムアウト（ミリ秒）</label>
+        <input id="timeout-ms" class="input" type="number" min="1000" step="500" />
+        <div class="row">
+          <button type="button" id="test-connection" class="button">接続テスト</button>
+          <span id="test-result" class="status" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>検索の初期値</h2>
+        <label class="label" for="result-count">1ページあたりの表示件数</label>
+        <input id="result-count" class="input" type="number" min="1" max="1000" />
+        <label class="label" for="sort">デフォルトの並び順</label>
+        <select id="sort" class="input">
+          <option value="name">名前</option>
+          <option value="path">パス</option>
+          <option value="size">サイズ</option>
+          <option value="date_modified">更新日時</option>
+        </select>
+        <label class="label" for="ascending">デフォルトの並び方向</label>
+        <select id="ascending" class="input">
+          <option value="1">昇順</option>
+          <option value="0">降順</option>
+        </select>
+        <label class="check"><input type="checkbox" id="match-case" /> 大文字・小文字を区別</label>
+        <label class="check"><input type="checkbox" id="match-path" /> パスを検索対象に含める</label>
+        <label class="check"><input type="checkbox" id="regex" /> 正規表現を使用</label>
+        <label class="check">
+          <input type="checkbox" id="restore-last-search" />
+          サイドパネルを開いた時に前回の検索を復元する
+        </label>
+        <div class="row">
+          <button type="button" id="save-settings" class="button">設定を保存</button>
+          <span id="save-result" class="status" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>HTTP 認証（任意）</h2>
+        <p class="note">
+          認証情報はマスターパスフレーズで AES-GCM 暗号化し、chrome.storage.local
+          に保存します。パスフレーズ自体は保存しません。ブラウザ終了後も暗号文は残りますが、利用前に解除が必要です。パスフレーズを忘れると復元できません。localhost
+          利用時は Everything 側の認証を空にすることを推奨します。
+        </p>
+        <p id="vault-status" class="status"></p>
+        <label class="label" for="http-username">ユーザー名</label>
+        <input id="http-username" class="input" type="text" autocomplete="off" />
+        <label class="label" for="http-password">パスワード</label>
+        <input id="http-password" class="input" type="password" autocomplete="new-password" />
+        <label class="label" for="master-passphrase">マスターパスフレーズ（8文字以上）</label>
+        <input id="master-passphrase" class="input" type="password" autocomplete="new-password" />
+        <label class="label" for="master-passphrase-confirm">マスターパスフレーズ（確認・保存時）</label>
+        <input
+          id="master-passphrase-confirm"
+          class="input"
+          type="password"
+          autocomplete="new-password"
+        />
+        <div class="row">
+          <button type="button" id="save-credentials" class="button">暗号化して保存</button>
+          <button type="button" id="unlock-credentials" class="button secondary">解除</button>
+          <button type="button" id="lock-credentials" class="button secondary">ロック</button>
+          <button type="button" id="clear-credentials" class="button secondary">削除</button>
+        </div>
+        <span id="vault-result" class="status" role="status" aria-live="polite"></span>
+      </section>
+
+      <section class="card">
+        <h2>セットアップ案内</h2>
+        <div class="tabs" role="tablist">
+          <button type="button" class="tab active" data-guide="14">Everything 1.4</button>
+          <button type="button" class="tab" data-guide="15">Everything 1.5</button>
+        </div>
+        <pre id="setup-text" class="setup-text"></pre>
+      </section>
+
+      <footer class="footer">
+        <p>
+          Find in Everything is an independent, unofficial browser extension. It is not affiliated
+          with, endorsed by, or sponsored by voidtools. Everything is a trademark of its respective
+          owner.
+        </p>
+      </footer>
+    </main>
+    <script type="module" src="./options.ts"></script>
+  </body>
+</html>

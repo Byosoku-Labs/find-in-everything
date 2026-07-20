@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Find in Everything",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "選択文字列を Everything HTTP Server で検索し、Popup / Side Panel に結果を表示します。Everything の別途インストールが必要です。非公式拡張機能です。",
+    "description": "Extension description for the Chrome Web Store"
+  }
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja" data-surface="popup">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find in Everything</title>
+    <link rel="stylesheet" href="../sidepanel/sidepanel.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="brand">
+          <img class="brand-logo" src="/icons/icon32.png" alt="" width="20" height="20" />
+          <h1 class="title">Find in Everything</h1>
+        </div>
+        <button type="button" id="open-options" class="icon-button" aria-label="設定" title="設定"></button>
+      </header>
+
+      <section id="setup-panel" class="panel setup-panel" hidden>
+        <div class="tabs" role="tablist" aria-label="セットアップ案内">
+          <button type="button" class="tab active" data-guide="14" role="tab" aria-selected="true">
+            Everything 1.4
+          </button>
+          <button type="button" class="tab" data-guide="15" role="tab" aria-selected="false">
+            Everything 1.5
+          </button>
+        </div>
+        <pre id="setup-text" class="setup-text" tabindex="0"></pre>
+        <p class="hint" id="localhost-note"></p>
+        <div class="row">
+          <button type="button" id="setup-test" class="button button-primary">接続を確認</button>
+          <button type="button" id="setup-dismiss" class="button button-secondary">案内を閉じる</button>
+        </div>
+        <p id="setup-test-result" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="search-section">
+        <label class="sr-only" for="search-input">検索</label>
+        <div class="search-row">
+          <div class="search-field">
+            <span class="search-field-icon" aria-hidden="true" data-icon="search"></span>
+            <input
+              id="search-input"
+              type="search"
+              class="input search-input"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="検索文字列"
+              placeholder="検索…"
+            />
+          </div>
+          <button type="button" id="search-button" class="button button-primary"></button>
+        </div>
+
+        <details class="options-details">
+          <summary>検索オプション</summary>
+          <div class="options-grid">
+            <label class="check"><input type="checkbox" id="opt-case" /> 大文字・小文字を区別</label>
+            <label class="check"><input type="checkbox" id="opt-path" /> パスを検索対象に含める</label>
+            <label class="check"><input type="checkbox" id="opt-regex" /> 正規表現</label>
+            <label class="label" for="opt-sort">並び順</label>
+            <select id="opt-sort" class="input">
+              <option value="name">名前</option>
+              <option value="path">パス</option>
+              <option value="size">サイズ</option>
+              <option value="date_modified">更新日時</option>
+            </select>
+            <label class="label" for="opt-ascending">並び方向</label>
+            <select id="opt-ascending" class="input">
+              <option value="1">昇順</option>
+              <option value="0">降順</option>
+            </select>
+            <label class="label" for="opt-count">1ページあたりの表示件数</label>
+            <input id="opt-count" type="number" min="1" max="1000" class="input" />
+          </div>
+        </details>
+        <p class="hint" id="es-note"></p>
+      </section>
+
+      <section class="results-section" aria-live="polite">
+        <div class="results-meta">
+          <span id="result-count">結果: -</span>
+          <span id="page-info"></span>
+        </div>
+        <div id="loading" class="status" hidden>読み込み中…</div>
+        <div id="error" class="error" hidden role="alert"></div>
+        <button type="button" id="retry" class="button button-secondary" hidden>再試行</button>
+        <ul id="results" class="results" aria-label="検索結果"></ul>
+        <div class="pagination">
+          <button type="button" id="prev-page" class="button button-secondary" disabled></button>
+          <button type="button" id="next-page" class="button button-secondary" disabled></button>
+        </div>
+      </section>
+
+      <footer class="footer-actions">
+        <button type="button" id="open-everything" class="button button-primary footer-primary"></button>
+      </footer>
+      <div class="footer-credit">
+        <div>Developed by Byosoku Labs</div>
+        <div class="footer-disclaimer">
+          Unofficial extension. Not affiliated with voidtools.
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../sidepanel/sidepanel.ts"></script>
+  </body>
+</html>
