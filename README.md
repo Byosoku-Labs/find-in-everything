@@ -153,9 +153,16 @@ public/           manifest / icons
 - 配布 zip は `npm run build:store` でビルドし、ソースマップを含めないこと
 - ビルド手順が再現可能であること
 
+## リポジトリ
+
+- GitHub: https://github.com/Byosoku-Labs/find-in-everything
+- Organization: https://github.com/Byosoku-Labs
+- Privacy policy: https://github.com/Byosoku-Labs/find-in-everything/blob/develop/PRIVACY.md
+
 ## セキュリティ報告
 
-脆弱性の報告方法は `SECURITY.md` を参照してください。
+脆弱性の報告方法は [`SECURITY.md`](./SECURITY.md) を参照してください。  
+https://github.com/Byosoku-Labs/find-in-everything/security/advisories
 
 ## ライセンス
 

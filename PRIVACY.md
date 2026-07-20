@@ -2,9 +2,15 @@
 
 Last updated: 2026-07-20
 
+Canonical URL (for Chrome Web Store and public reference):
+
+https://github.com/Byosoku-Labs/find-in-everything/blob/develop/PRIVACY.md
+
 ## Overview
 
-Find in Everything is a Chrome extension developed by Byosoku Labs. This document explains what data is processed, where it is stored, and who can access it.
+Find in Everything is a Chrome extension developed by [Byosoku Labs](https://github.com/Byosoku-Labs). This document explains what data is processed, where it is stored, and who can access it.
+
+Repository: https://github.com/Byosoku-Labs/find-in-everything
 
 This extension searches your local Everything HTTP Server. It does **not** send search queries or file paths to Byosoku Labs or any developer-operated backend.
 
@@ -46,7 +52,10 @@ Search results are shown only in the extension Popup and Side Panel. The extensi
 
 ## Contact
 
-- Developer: Byosoku Labs
-- Security / privacy inquiries: open a GitHub issue on the project repository, or contact the developer via the Chrome Web Store listing support channel once published.
+- Organization: [Byosoku Labs](https://github.com/Byosoku-Labs)
+- Repository: https://github.com/Byosoku-Labs/find-in-everything
+- Privacy and general questions: https://github.com/Byosoku-Labs/find-in-everything/issues
+- Security vulnerabilities: see [SECURITY.md](./SECURITY.md) and https://github.com/Byosoku-Labs/find-in-everything/security/advisories
+- After Chrome Web Store publication: the listing’s support / contact channel may also be used
 
-If this policy is hosted at a public URL for the Chrome Web Store, that URL is the canonical copy.
+This file in the `develop` branch of the repository is the canonical privacy policy.
